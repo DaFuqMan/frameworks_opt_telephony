@@ -104,6 +104,7 @@ public class UiccProfile extends IccCard {
     private final UiccCard mUiccCard; //parent
     private CatService mCatService;
     private UiccCarrierPrivilegeRules mCarrierPrivilegeRules;
+    private boolean mDefaultAppsActivated;
     private boolean mDisposed = false;
 
     private boolean mDefaultAppsActivated;
@@ -951,12 +952,13 @@ public class UiccProfile extends IccCard {
     private void activateDefaultApps() {
         int gsmIndex = mGsmUmtsSubscriptionAppIndex;
         int cdmaIndex = mCdmaSubscriptionAppIndex;
-         if (gsmIndex < 0 || cdmaIndex < 0) {
+        if (gsmIndex < 0 || cdmaIndex < 0) {
             for (int i = 0; i < mUiccApplications.length; i++) {
                 if (mUiccApplications[i] == null) {
                     continue;
                 }
-                 AppType appType = mUiccApplications[i].getType();
+
+                AppType appType = mUiccApplications[i].getType();
                 if (gsmIndex < 0 &&
                         (appType == AppType.APPTYPE_USIM || appType == AppType.APPTYPE_SIM)) {
                     gsmIndex = i;
