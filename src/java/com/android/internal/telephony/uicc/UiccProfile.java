@@ -107,8 +107,6 @@ public class UiccProfile extends IccCard {
     private boolean mDefaultAppsActivated;
     private boolean mDisposed = false;
 
-    private boolean mDefaultAppsActivated;
-
     private RegistrantList mCarrierPrivilegeRegistrants = new RegistrantList();
     private RegistrantList mOperatorBrandOverrideRegistrants = new RegistrantList();
 
